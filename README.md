@@ -1,5 +1,7 @@
 # aimgame
 
+:construction: Work in progress :construction:
+
 ## Project setup
 ```
 npm install
