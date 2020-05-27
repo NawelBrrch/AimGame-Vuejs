@@ -1,8 +1,8 @@
 <template>
   <div>
-    <span v-html="welcomeMessage" v-hide></span>
-    <form v-hide @submit.prevent="setPlayer">
-      <input name="player" placeholder="Entrez votre pseudo" v-border:red/>
+    <span v-html="welcomeMessage" :class="{ hide: !player }"></span>
+    <form @submit.prevent="setPlayer" :class="{ hide: player }">
+      <input name="player" placeholder="Entrez votre pseudo" />
       <button type="submit">Jouer</button>
     </form>
   </div>
@@ -35,26 +35,18 @@ export default {
       this.player = playerName
     }
   },
-  directives: {
-    border: function (el, binding){
-      el.style.borderColor = binding.arg
-    },
-    hide: function(el, binding, vnode) {
-      let isForm = vnode.tag === 'form'
-      let player = vnode.context.player
-      if(isForm) {
-        el.style.display = player ? 'none' : 'block'
-      }else{
-        el.style.display = player ? 'block' : 'none'
-      }
-
-    }
-  }
+  
 }
 
 </script>
 
 <style lang="scss" scoped>
+
+.hide {
+  display: none;
+}
+
+
 
 
 </style>

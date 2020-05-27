@@ -1,7 +1,7 @@
 <template>
 
   <div class="game" @click.exact="clickOnInterface">
-    <span class="round" ref="round" @click.exact.stop="clickOnRound" @click.ctrl.stop="bonus"></span>
+    <span class="round"  :style="roundStyle" :class="{bonus: bonusActivated}" @click.exact.stop="clickOnRound" @click.ctrl.stop="bonus"></span>
   </div>
   
 </template>
@@ -11,8 +11,15 @@
 export default {
   name: 'Game',
   data: function () {
-    return {click: 0}
-
+    return {
+      click: 0,
+      roundStyle: {
+        height: '50px',
+        width: '50px',
+        margin: '20% 20%'
+      },
+      bonusActivated: false
+    }
   },
   created: function() {
     document.onkeydown = this.start
@@ -27,9 +34,12 @@ export default {
     clickOnRound: function () {
       this.click++
     },
-    bonus: function (event) {
-      console.log('bonus')
-      console.log(event)
+    bonus: function () {
+      if (this.bonusActivated){
+        console.log('bonus')
+      }else{
+        console.log('????')
+      }
     },
     clickOnInterface: function () {
       this.click++
@@ -42,14 +52,15 @@ export default {
       }
     },
     updateRound: function () {
-      let element = this.$refs.round
 
       let size = Math.random() * (100 - 10) + 10
       let top = Math.random() * (60 - 5) + 5
-      let left = Math.random() * (60 - 5) + 5
+      let left = Math.random() * (70 - 5) + 5
 
-      element.style.height = element.style.width = `${size}px`
-      element.style.margin =  `${top}% ${left}%`
+      this.bonusActivated = size > 80
+
+      this.roundStyle.height = this.roundStyle.width = `${size}px`
+      this.roundStyle.margin =  `${top}% ${left}%`
     }
   }
 }
@@ -61,19 +72,19 @@ export default {
 
 .game {
   width: 100%;
-  height: 50%;
+  height: 60%;
   background: lightseagreen;
 
   .round {
-    height: 50px; 
-    width: 50px;
     background: darkblue;
     border-radius: 100%;
     position: absolute;
-    margin: 20%;
+  }
+
+  .bonus {
+    background-color: red;
   }
   
-
 }
 
 </style>
