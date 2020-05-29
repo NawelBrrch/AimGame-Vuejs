@@ -1,6 +1,9 @@
 # aimgame
 
-:construction: Work in progress :construction:
+Personal project (training)
+Little game with Vue.js (Desktop only)
+
+https://aimgame-vue.netlify.app/
 
 ## Project setup
 ```
