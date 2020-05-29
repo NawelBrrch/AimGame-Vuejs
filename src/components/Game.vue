@@ -97,8 +97,8 @@ export default {
     updateRound() {
 
       let size = Math.random() * (100 - 10) + 10
-      let top = Math.random() * (35 - 5) + 5
-      let left = Math.random() * (80 - 5) + 5
+      let top = Math.random() * (30 - 5) + 5
+      let left = Math.random() * (85 - 5) + 5
 
 
       this.badColorActivated = size < 40
@@ -176,10 +176,9 @@ export default {
   position: absolute;
   font-size: 10vw;
   font-weight: bolder;
-  padding-left: 5vw;
+  padding-left: 3vw;
   color: $white;
   opacity: 0.5;
-  border: 2px solid red;
 }
 
 .gameOver {

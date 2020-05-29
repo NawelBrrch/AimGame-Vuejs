@@ -84,7 +84,7 @@ export default {
 }
 
 .rules {
-  margin-top: 2vw;
+  margin-top: 1vw;
   display: flex;
   justify-content: center;
   color: $tertiary-blue;
@@ -106,7 +106,5 @@ export default {
     align-items: center;
   }
 }
-
-
 
 </style>
