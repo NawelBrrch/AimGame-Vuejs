@@ -1,6 +1,7 @@
-# aimgame
+# Aim game
 
 Personal project (training)
+
 Little game with Vue.js (Desktop only)
 
 https://aimgame-vue.netlify.app/
